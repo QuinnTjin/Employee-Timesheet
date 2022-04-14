@@ -6,6 +6,7 @@ import { ShiftListComponent } from './shifts/shift-list/shift-list.component';
 import { ShiftCreateComponent } from './shifts/shift-create/shift-create.component';
 import { AuthGuard } from './auth/auth.guard';
 
+//The application should not be accessed by an unauthorized user.
 const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'shifts', component: ShiftListComponent, canActivate: [AuthGuard]},

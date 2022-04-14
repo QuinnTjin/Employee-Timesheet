@@ -16,7 +16,9 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //This method creates a new user.
   onSignup(form : NgForm){
+  //This method will not call the server with form the values unless the form is valid.
     if (form.invalid){
       return;
     }

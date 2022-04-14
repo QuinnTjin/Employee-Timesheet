@@ -7,6 +7,7 @@ const shiftRoutes = require("./routes/shifts");
 
 const app = express();
 
+//This is the connection to database.
 mongoose
   .connect(
     "mongodb+srv://tjin:ZzC7ljcKDpIkfXA6@cluster0.dxlf8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
@@ -18,9 +19,11 @@ mongoose
     console.log("Connection failed!");
   });
 
+//This piece of code parses the JSON files that come back from MongoDB.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//CORS
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -34,6 +37,7 @@ app.use((req, res, next) => {
   next();
 });
 
+//This piece of code connects the application to routing in the routes folder, depending on the name called back to the server.
 app.use("/api/users", userRoutes);
 app.use(shiftRoutes);
 
