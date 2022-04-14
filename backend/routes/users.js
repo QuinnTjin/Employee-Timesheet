@@ -62,8 +62,6 @@ router.post("/login", (req, res, next) => {
     });
 });
 
-module.exports = router;
-
 
 router.post("/login", (res, req, next) => {
   console.log(req.body);

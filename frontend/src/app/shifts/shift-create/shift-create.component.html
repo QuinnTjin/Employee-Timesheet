@@ -1,0 +1,9 @@
+
+<mat-card>
+  <form (submit)="endShift()" #postForm="ngForm">
+    <p>Today's Date: {{currentDate}}</p>
+    <p>Begin Shift At: {{currentTime}} </p>
+    <button mat-raised-button color = "accent" type="submit" *ngIf="shift.active === true">End Shift</button>
+    <button mat-raised-button color = "accent" (click)="beginShift()"  *ngIf="shift.active === false">Begin Shift</button>
+  </form>
+</mat-card>

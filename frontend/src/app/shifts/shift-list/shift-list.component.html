@@ -1,0 +1,16 @@
+<mat-accordion multi="true" *ngIf="(shifts.length > 0)">
+  <mat-expansion-panel *ngFor="let shift of shifts">
+    <mat-expansion-panel-header>
+      <p>Date: {{shift.date}}</p>
+    </mat-expansion-panel-header>
+    <mat-action-row>
+      <p>Shift started: {{shift.timestart}}</p>
+    </mat-action-row>
+    <mat-action-row>
+      <p>Shift ended: {{shift.timeout}}</p>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<!-- Display this when there are no shifts to display. -->
+<p class = "info-text mat-body-1" *ngIf="(shifts.length <= 0)">No shifts avaible to display</p>
+

@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //This method validates an email and password for user authentication in order to access the application.
   onLogin(form : NgForm){
     if (form.invalid){
       return;
