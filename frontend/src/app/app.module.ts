@@ -10,25 +10,26 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostCreateCComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header.component';
-import { PostListComponent } from './post-list/post-list.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
+import { ShiftCreateComponent } from './shifts/shift-create/shift-create.component';
+import { ShiftListComponent } from './shifts/shift-list/shift-list.component';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostCreateCComponent,
     HeaderComponent,
-    PostListComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ShiftCreateComponent,
+    ShiftListComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +46,7 @@ import { LoginComponent } from './auth/login/login.component';
     MatProgressSpinnerModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
